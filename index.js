@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
 import app from "./server.js";
+import dotevn from "dotenv";
 
 async function main() {
+  dotevn.config();
+
   const port = 3000;
-  const CONNECTION_URI = `mongodb+srv://tranvinh:tranvinh@cluster0.h9ukr.mongodb.net/moviedb?retryWrites=true&w=majority`;
+  const CONNECTION_URI = `mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@cluster0.h9ukr.mongodb.net/moviedb?retryWrites=true&w=majority`;
 
   mongoose.connect(CONNECTION_URI);
 

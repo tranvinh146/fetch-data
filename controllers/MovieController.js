@@ -6,7 +6,7 @@ export default class MovieController {
     try {
       let page = 5;
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=ceb12b82f23a3c75ad2435880e6ab4ed&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=${page}`
       );
       const data = await response.json();
       const movieList = data.results;
